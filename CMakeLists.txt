@@ -32,6 +32,8 @@ set(PROJECT_SOURCES
         mainwindow.cpp
         mainwindow.h
         mainwindow.ui
+        dataimporter.cpp
+        dataimporter.h
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
