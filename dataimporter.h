@@ -1,7 +1,8 @@
 #ifndef DATAIMPORTER_H
 #define DATAIMPORTER_H
-
 #include <QObject>
+#include <QString>
+#include <QVector>
 
 class DataImporter : public QObject
 {
@@ -11,6 +12,7 @@ public:
 
     bool Import();
     void DataPrint();
+    QVector<int> GetData();
 
 private:
 

@@ -1,7 +1,5 @@
 #include "dataimporter.h"
 #include <QDebug>
-#include <QString>
-#include <QVector>
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -65,4 +63,9 @@ void DataImporter::DataPrint()
     {
         qDebug() << Data[i];
     }
+}
+
+QVector<int> DataImporter::GetData()
+{
+    return Data;
 }

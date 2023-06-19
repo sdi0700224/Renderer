@@ -23,5 +23,7 @@ int main(int argc, char *argv[])
         return EXIT_FAILURE;
     }
 
+    QVector<int> data = dataImporter.GetData();
+
     return a.exec();
 }
