@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.15.2, 2023-06-18T18:46:30. -->
+<!-- Written by QtCreator 4.15.2, 2023-06-19T03:57:38. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -352,6 +352,7 @@
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">Renderer</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.Renderer</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">Renderer</value>
+    <value type="QString" key="RunConfiguration.Arguments">&quot;C:\\Users\\rouss\\Documents\\Qt Projects\\Renderer\\waveform-data.txt&quot;</value>
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
