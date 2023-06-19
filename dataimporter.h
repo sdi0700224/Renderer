@@ -9,11 +9,15 @@ class DataImporter : public QObject
 public:
     explicit DataImporter(QObject *parent = nullptr, const QString& filepath = "");
 
-    void Import();
+    bool Import();
+    void DataPrint();
 
 private:
 
     QString Filepath;
+    int Timestep;
+    QString Units;
+    QVector<int> Data;
 
 signals:
 
