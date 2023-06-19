@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "dataimporter.h"
+#include "datarenderer.h"
 #include <QApplication>
 #include <QDebug>
 
@@ -24,6 +25,9 @@ int main(int argc, char *argv[])
     }
 
     QVector<int> data = dataImporter.GetData();
+
+    DataRenderer dataRenderer(nullptr);
+    dataRenderer.SetData(data);
 
     return a.exec();
 }
