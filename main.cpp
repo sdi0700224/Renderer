@@ -23,9 +23,10 @@ int main(int argc, char *argv[])
     }
     QVector<int> data = dataImporter.GetData();
     QString units = dataImporter.GetUnits();
+    int timestep = dataImporter.GetTimestep();
 
     DataRenderer dataRenderer;
-    dataRenderer.SetData(data);
+    dataRenderer.SetData(data, units, timestep);
 
     mainWindow.setCentralWidget(&dataRenderer);
     mainWindow.show();

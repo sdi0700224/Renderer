@@ -59,7 +59,7 @@ bool DataImporter::ImportData()
     }
 }
 
-void DataImporter::PrintData()
+void DataImporter::PrintData() const
 {
     for (int i = 0; i < Data.count(); i++)
     {
@@ -67,22 +67,22 @@ void DataImporter::PrintData()
     }
 }
 
-QVector<int> DataImporter::GetData()
+QVector<int> DataImporter::GetData() const
 {
     return Data;
 }
 
-QString DataImporter::GetUnits()
+QString DataImporter::GetUnits() const
 {
     return Units;
 }
 
-int DataImporter::GetTimestep()
+int DataImporter::GetTimestep() const
 {
     return Timestep;
 }
 
-bool DataImporter::IsDataImported()
+bool DataImporter::IsDataImported() const
 {
     return Data.count() > 0 && Units.count() > 0 && Timestep > 0;
 }

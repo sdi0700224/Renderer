@@ -7,9 +7,11 @@ DataRenderer::DataRenderer(QWidget *parent) : QWidget(parent)
 {
 }
 
-void DataRenderer::SetData(const QVector<int>& data)
+void DataRenderer::SetData(const QVector<int>& data, const QString& units, int timestep)
 {
     Data = data;
+    Units = units;
+    Timestep = timestep;
     update();
 }
 

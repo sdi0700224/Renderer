@@ -10,11 +10,11 @@ class DataImporter : public QObject
 public:
     explicit DataImporter(QObject *parent = nullptr, const QString& filepath = "");
     bool ImportData();
-    void PrintData();
-    QVector<int> GetData();
-    QString GetUnits();
-    int GetTimestep();
-    bool IsDataImported();
+    void PrintData() const;
+    QVector<int> GetData() const;
+    QString GetUnits() const;
+    int GetTimestep() const;
+    bool IsDataImported() const;
 
 private:
     QString Filepath;
