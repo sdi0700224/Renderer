@@ -47,6 +47,13 @@ void DataRenderer::paintEvent(QPaintEvent* event)
             {
                 painter.drawLine(i * rectWidth, middleY, i * rectWidth, middleY - rectHeight);
             }
+
+            if (i % 10 == 0)
+            {
+                painter.setPen(Qt::white);
+                painter.drawText(QPointF(i * rectWidth, middleY + 20), QString::number(i * Timestep).append(Units));
+                painter.setPen(pen);
+            }
         }
     }
     QWidget::paintEvent(event);
