@@ -21,29 +21,30 @@ void DataRenderer::paintEvent(QPaintEvent* event)
     if (!Data.isEmpty())
     {
         int middleY = this->height() / 2;
-        int rectHeight = 50;
+        int rectHeight = 100;
         int rectWidth = 10;
         int lineWidth = 2;
 
         for (int i = 0; i < Data.size(); ++i)
         {
             painter.setRenderHint(QPainter::Antialiasing);
+            QPen pen(Qt::darkGreen);
+            pen.setWidth(lineWidth);
+            painter.setPen(pen);
 
             if (Data[i] > 0)
             {
-                QPen pen(Qt::darkGreen);
-                painter.setPen(pen);
-                painter.setBrush(Qt::darkGreen);
-                painter.drawRect(i * rectWidth, middleY - rectHeight, rectWidth, rectHeight);
+                painter.drawLine(i * rectWidth, middleY - rectHeight, (i * rectWidth) + rectWidth, middleY - rectHeight);
+            }
+            else
+            {
+                painter.drawLine(i * rectWidth, middleY, (i * rectWidth) + rectWidth, middleY);
             }
 
-
-            QPen pen(Qt::darkGreen);
-            pen.setWidth(2);
-            painter.setPen(pen);
-            painter.setBrush(Qt::NoBrush);
-            painter.drawLine(i * rectWidth, middleY, (i * rectWidth) + rectWidth, middleY);
-
+            if (i - 1 > 0 && Data[i] != Data[i - 1])
+            {
+                painter.drawLine(i * rectWidth, middleY, i * rectWidth, middleY - rectHeight);
+            }
         }
     }
     QWidget::paintEvent(event);
