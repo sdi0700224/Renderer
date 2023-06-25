@@ -26,7 +26,6 @@ int main(int argc, char *argv[])
 
     QScrollArea* scrollArea = new QScrollArea(mainWindow);
     scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
-    scrollArea->setWidgetResizable(true);
 
     DataRenderer* dataRenderer = new DataRenderer();
     dataRenderer->SetData(dataImporter.GetData(), dataImporter.GetUnits(), dataImporter.GetTimestep());
