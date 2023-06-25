@@ -27,6 +27,7 @@ void DataRenderer::paintEvent(QPaintEvent* event)
         int rectHeight = 100;
         int rectWidth = 10;
         int lineWidth = 2;
+        int unitsGap = 20;
 
         for (int i = 0; i < Data.size(); ++i)
         {
@@ -52,7 +53,7 @@ void DataRenderer::paintEvent(QPaintEvent* event)
             if (i % 10 == 0)
             {
                 painter.setPen(Qt::white);
-                painter.drawText(QPointF(i * rectWidth, middleY + 20), QString::number(i * Timestep).append(Units));
+                painter.drawText(QPointF(i * rectWidth, middleY + unitsGap), QString::number(i * Timestep).append(Units));
                 painter.setPen(pen);
             }
         }
