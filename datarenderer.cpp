@@ -12,6 +12,7 @@ void DataRenderer::SetData(const QVector<int>& data, const QString& units, int t
     Data = data;
     Units = units;
     Timestep = timestep;
+    updateGeometry();
     update();
 }
 
@@ -57,4 +58,12 @@ void DataRenderer::paintEvent(QPaintEvent* event)
         }
     }
     QWidget::paintEvent(event);
+}
+
+QSize DataRenderer::sizeHint() const
+{
+    int rectWidth = 10;
+    int width = Data.size() * rectWidth;
+    int height = this->height();
+    return QSize(width, height);
 }

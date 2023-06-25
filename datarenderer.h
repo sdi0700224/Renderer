@@ -10,6 +10,7 @@ class DataRenderer : public QWidget
 public:
     explicit DataRenderer(QWidget *parent = nullptr);
     void SetData(const QVector<int>& data, const QString& units, int timestep);
+    QSize sizeHint() const override;
 
 protected:
     void paintEvent(QPaintEvent* event) override;

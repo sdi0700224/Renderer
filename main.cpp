@@ -3,11 +3,11 @@
 #include "datarenderer.h"
 #include <QApplication>
 #include <QDebug>
+#include <QScrollArea>
 
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
-    MainWindow mainWindow;
 
     if (argc != 2)
     {
@@ -21,15 +21,20 @@ int main(int argc, char *argv[])
         qDebug() << "Data could not be Imported from file";
         return EXIT_FAILURE;
     }
-    QVector<int> data = dataImporter.GetData();
-    QString units = dataImporter.GetUnits();
-    int timestep = dataImporter.GetTimestep();
 
-    DataRenderer dataRenderer;
-    dataRenderer.SetData(data, units, timestep);
+    MainWindow* mainWindow = new MainWindow();
 
-    mainWindow.setCentralWidget(&dataRenderer);
-    mainWindow.show();
+    QScrollArea* scrollArea = new QScrollArea(mainWindow);
+    scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
+    scrollArea->setWidgetResizable(true);
+
+    DataRenderer* dataRenderer = new DataRenderer();
+    dataRenderer->SetData(dataImporter.GetData(), dataImporter.GetUnits(), dataImporter.GetTimestep());
+
+    scrollArea->setWidget(dataRenderer);
+
+    mainWindow->setCentralWidget(scrollArea);
+    mainWindow->show();
 
     return app.exec();
 }
