@@ -25,4 +25,4 @@ private:
     QPushButton* zoomOutButton;
     DataRenderer* dataRenderer;
 };
-#endif // MAINWINDOW_H
+#endif

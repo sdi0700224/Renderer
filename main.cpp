@@ -22,9 +22,6 @@ int main(int argc, char *argv[])
         return EXIT_FAILURE;
     }
 
-
-
-
     DataRenderer* dataRenderer = new DataRenderer();
     dataRenderer->SetData(dataImporter.GetData(), dataImporter.GetUnits(), dataImporter.GetTimestep());
 

@@ -26,4 +26,4 @@ signals:
 
 };
 
-#endif // DATAIMPORTER_H
+#endif
