@@ -6,9 +6,8 @@
 
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
-    MainWindow w;
-    w.show();
+    QApplication app(argc, argv);
+    MainWindow mainWindow;
 
     if (argc != 2)
     {
@@ -17,17 +16,18 @@ int main(int argc, char *argv[])
     }
 
     DataImporter dataImporter(nullptr, argv[1]);
-
     if (!dataImporter.Import())
     {
         qDebug() << "Data could not be Imported from file";
         return EXIT_FAILURE;
     }
-
     QVector<int> data = dataImporter.GetData();
 
-    DataRenderer dataRenderer(nullptr);
+    DataRenderer dataRenderer;
     dataRenderer.SetData(data);
 
-    return a.exec();
+    mainWindow.setCentralWidget(&dataRenderer);
+    mainWindow.show();
+
+    return app.exec();
 }
