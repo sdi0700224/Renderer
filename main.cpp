@@ -16,12 +16,13 @@ int main(int argc, char *argv[])
     }
 
     DataImporter dataImporter(nullptr, argv[1]);
-    if (!dataImporter.Import())
+    if (!dataImporter.IsDataImported())
     {
         qDebug() << "Data could not be Imported from file";
         return EXIT_FAILURE;
     }
     QVector<int> data = dataImporter.GetData();
+    QString units = dataImporter.GetUnits();
 
     DataRenderer dataRenderer;
     dataRenderer.SetData(data);

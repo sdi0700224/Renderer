@@ -10,10 +10,12 @@ DataImporter::DataImporter(QObject *parent, const QString& filepath) : QObject(p
 {
     Filepath = filepath;
     Timestep = -1;
+    ImportData();
 }
 
-bool DataImporter::Import()
+bool DataImporter::ImportData()
 {
+    Data.clear();
     fstream dataFile;
 
     dataFile.open(Filepath.toStdString(), ios::in);
@@ -42,7 +44,7 @@ bool DataImporter::Import()
         }
         dataFile.close();
 
-        if (Timestep == -1 || Units.size() == 0 || Data.count() == 0)
+        if (Timestep < 1 || Units.size() == 0 || Data.count() == 0)
         {
             qDebug() << "File is not in proper format";
             return false;
@@ -57,7 +59,7 @@ bool DataImporter::Import()
     }
 }
 
-void DataImporter::DataPrint()
+void DataImporter::PrintData()
 {
     for (int i = 0; i < Data.count(); i++)
     {
@@ -68,4 +70,19 @@ void DataImporter::DataPrint()
 QVector<int> DataImporter::GetData()
 {
     return Data;
+}
+
+QString DataImporter::GetUnits()
+{
+    return Units;
+}
+
+int DataImporter::GetTimestep()
+{
+    return Timestep;
+}
+
+bool DataImporter::IsDataImported()
+{
+    return Data.count() > 0 && Units.count() > 0 && Timestep > 0;
 }

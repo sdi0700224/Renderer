@@ -9,9 +9,12 @@ class DataImporter : public QObject
     Q_OBJECT
 public:
     explicit DataImporter(QObject *parent = nullptr, const QString& filepath = "");
-    bool Import();
-    void DataPrint();
+    bool ImportData();
+    void PrintData();
     QVector<int> GetData();
+    QString GetUnits();
+    int GetTimestep();
+    bool IsDataImported();
 
 private:
     QString Filepath;
