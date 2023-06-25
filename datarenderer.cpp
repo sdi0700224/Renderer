@@ -12,6 +12,7 @@ void DataRenderer::SetData(const QVector<int>& data, const QString& units, int t
     Data = data;
     Units = units;
     Timestep = timestep;
+    ZoomFactor = 1.0;
     updateGeometry();
     update();
 }
@@ -25,7 +26,7 @@ void DataRenderer::paintEvent(QPaintEvent* event)
     {
         int middleY = this->height() / 2;
         int rectHeight = 100;
-        int rectWidth = 10;
+        int rectWidth = 10 * ZoomFactor;
         int lineWidth = 2;
         int unitsGap = 20;
 
@@ -63,8 +64,20 @@ void DataRenderer::paintEvent(QPaintEvent* event)
 
 QSize DataRenderer::sizeHint() const
 {
-    int rectWidth = 10;
+    int rectWidth = 10 * ZoomFactor;
     int width = Data.size() * rectWidth;
     int height = this->height();
     return QSize(width, height);
+}
+
+void DataRenderer::ZoomIn() {
+    ZoomFactor *= 1.2;
+    updateGeometry();
+    update();
+}
+
+void DataRenderer::ZoomOut() {
+    ZoomFactor /= 1.2;
+    updateGeometry();
+    update();
 }

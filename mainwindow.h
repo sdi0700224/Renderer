@@ -2,6 +2,10 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QPushButton>
+#include <QHBoxLayout>
+#include <QVBoxLayout>
+#include "datarenderer.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -12,10 +16,13 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr);
+    MainWindow(DataRenderer* dataRenderer, QWidget *parent = nullptr);
     ~MainWindow();
 
 private:
     Ui::MainWindow *ui;
+    QPushButton* zoomInButton;
+    QPushButton* zoomOutButton;
+    DataRenderer* dataRenderer;
 };
 #endif // MAINWINDOW_H

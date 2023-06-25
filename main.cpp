@@ -22,17 +22,13 @@ int main(int argc, char *argv[])
         return EXIT_FAILURE;
     }
 
-    MainWindow* mainWindow = new MainWindow();
 
-    QScrollArea* scrollArea = new QScrollArea(mainWindow);
-    scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
+
 
     DataRenderer* dataRenderer = new DataRenderer();
     dataRenderer->SetData(dataImporter.GetData(), dataImporter.GetUnits(), dataImporter.GetTimestep());
 
-    scrollArea->setWidget(dataRenderer);
-
-    mainWindow->setCentralWidget(scrollArea);
+    MainWindow* mainWindow = new MainWindow(dataRenderer);
     mainWindow->show();
 
     return app.exec();
